@@ -1,0 +1,186 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5602,        177]
+NotebookOptionsPosition[      5069,        156]
+NotebookOutlinePosition[      5402,        171]
+CellTagsIndexPosition[      5359,        168]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "ToMatlab.m"}]], "Input",
+ CellChangeTimes->{{3.668695528894981*^9, 3.668695529022773*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"Exp", "[", "logsigma", "]"}], " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], 
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "-", "y"}], ")"}], "^", "2"}], 
+       RowBox[{"Exp", "[", "logtheta", "]"}]]}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.667155195493936*^9, 3.6671552043662977`*^9}, {
+  3.667155739318668*^9, 3.667155744550468*^9}, {3.6671562169006157`*^9, 
+  3.667156219572356*^9}, {3.667328490996279*^9, 3.667328497140397*^9}, {
+  3.668695803488693*^9, 3.668695831697345*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ghat", " ", "=", " ", 
+   RowBox[{"FourierTransform", "[", 
+    RowBox[{"g", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"u", ",", "v"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.667050309714344*^9, 3.667050492795929*^9}, {
+   3.6670506182318068`*^9, 3.667050627446369*^9}, {3.66705066789503*^9, 
+   3.667050682727253*^9}, {3.667050836336043*^9, 3.6670508696797123`*^9}, {
+   3.667050948377572*^9, 3.667050948824665*^9}, {3.667051006779051*^9, 
+   3.6670510091134787`*^9}, {3.6670554841486797`*^9, 
+   3.6670554916765633`*^9}, {3.667055683734548*^9, 3.667055687694891*^9}, {
+   3.6671552123206167`*^9, 3.6671552162869062`*^9}, 3.668695828520755*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"k", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"InverseFourierTransform", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "I"}], " ", "u"}], ")"}], "a"], " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "I"}], " ", "v"}], ")"}], "a"]}], " ", "-", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "I"}], " ", "u"}], ")"}], "a"], " ", "-", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "I"}], " ", "v"}], ")"}], "a"], "  ", "+", " ", 
+         "1"}], ")"}], " ", "ghat"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"u", ",", "v"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}]}], "]"}], "//", "FullSimplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.667328558401841*^9, 3.667328644414515*^9}, {
+   3.667329881223578*^9, 3.667329883422915*^9}, 3.668695541037211*^9, {
+   3.668695573429214*^9, 3.66869557632857*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"h", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"InverseFourierTransform", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "I"}], " ", "v"}], ")"}], "a"], " ", "-", " ", "1"}],
+         ")"}], " ", "ghat"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"u", ",", "v"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}]}], "]"}], "//", "FullSimplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.667328748590775*^9, 3.667328809240617*^9}, {
+  3.668695582652404*^9, 3.66869558644411*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Dklogsigma", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"D", "[", 
+     RowBox[{"k", ",", "logsigma"}], "]"}], "//", "FullSimplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.668696303136075*^9, 3.668696383699379*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Dklogtheta", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"D", "[", 
+     RowBox[{"k", ",", "logtheta"}], "]"}], "//", "FullSimplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6686963910010843`*^9, 3.6686963981277447`*^9}, {
+  3.6686965083638763`*^9, 3.668696528899891*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Dhlogsigma", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"D", "[", 
+     RowBox[{"h", ",", "logsigma"}], "]"}], "//", "FullSimplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.668729429025055*^9, 3.668729447732553*^9}, 
+   3.668729763910399*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Dhlogtheta", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"D", "[", 
+     RowBox[{"h", ",", "logtheta"}], "]"}], "//", "FullSimplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.668729456285017*^9, 3.668729461262445*^9}}]
+},
+WindowSize->{1280, 948},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (June 27, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 120, 2, 32, "Input"],
+Cell[680, 24, 658, 17, 58, "Input"],
+Cell[1341, 43, 758, 15, 32, "Input"],
+Cell[2102, 60, 1185, 34, 32, "Input"],
+Cell[3290, 96, 666, 20, 32, "Input"],
+Cell[3959, 118, 254, 7, 32, "Input"],
+Cell[4216, 127, 309, 8, 32, "Input"],
+Cell[4528, 137, 280, 8, 32, "Input"],
+Cell[4811, 147, 254, 7, 32, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

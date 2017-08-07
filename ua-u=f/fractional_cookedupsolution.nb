@@ -1,0 +1,108 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3229,         99]
+NotebookOptionsPosition[      2669,         77]
+NotebookOutlinePosition[      3183,         97]
+CellTagsIndexPosition[      3140,         94]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "ToMatlab.m"}]], "Input",
+ CellChangeTimes->{{3.6673283021931047`*^9, 3.6673283072572403`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"2", "Pi", " ", 
+     RowBox[{"Cos", " ", "[", 
+      RowBox[{"2", "Pi", " ", "x"}], "]"}]}], " ", "-", " ", 
+    RowBox[{"Sin", "[", 
+     RowBox[{"2", " ", "Pi", " ", "x"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.667217521861821*^9, 3.667217527539617*^9}, {
+   3.667217686167528*^9, 3.667217687618222*^9}, 3.668694353120576*^9, {
+   3.668697492633312*^9, 3.668697505843305*^9}, {3.668697904631918*^9, 
+   3.668697925103072*^9}, {3.668698944885549*^9, 3.66869895331689*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fhat", " ", "=", "  ", 
+   RowBox[{"FourierTransform", "[", 
+    RowBox[{"f", ",", " ", 
+     RowBox[{"{", "x", "}"}], ",", " ", 
+     RowBox[{"{", "w", "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6672175351426477`*^9, 3.6672175500524063`*^9}, 
+   3.6672177732805843`*^9, {3.6672248969272213`*^9, 3.66722490621506*^9}, 
+   3.6673283648528337`*^9, 3.6686975152745447`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"uhat", " ", "=", " ", 
+   FractionBox["fhat", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "I"}], " ", "w"}], ")"}], "a"], "-", "1"}]]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.667217557879195*^9, 3.667217580877192*^9}, {
+   3.667217782409442*^9, 3.6672177846483717`*^9}, {3.667331408883028*^9, 
+   3.667331409050609*^9}, 3.668697518074238*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"u", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"InverseFourierTransform", "[", 
+     RowBox[{"uhat", ",", " ", 
+      RowBox[{"{", "w", "}"}], ",", " ", 
+      RowBox[{"{", "x", "}"}]}], "]"}], "//", "FullSimplify"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.667217587967938*^9, 3.667217602670425*^9}, {
+   3.6672177293515663`*^9, 3.6672177463765697`*^9}, {3.667217791058071*^9, 
+   3.667217797656259*^9}, {3.667224920279023*^9, 3.66722492972059*^9}, {
+   3.667328395283103*^9, 3.6673283973072443`*^9}, 3.66869752199374*^9}]
+},
+WindowSize->{1076, 1890},
+WindowMargins->{{0, Automatic}, {Automatic, -25}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperOrientation"->"Portrait",
+"PaperSize"->{Automatic, Automatic},
+"PostScriptOutputFile"->""},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (June 27, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 124, 2, 32, "Input"],
+Cell[684, 24, 565, 12, 32, "Input"],
+Cell[1252, 38, 419, 9, 32, "Input"],
+Cell[1674, 49, 429, 12, 58, "Input"],
+Cell[2106, 63, 559, 12, 32, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

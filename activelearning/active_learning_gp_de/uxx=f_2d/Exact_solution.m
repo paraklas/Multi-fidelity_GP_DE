@@ -1,0 +1,4 @@
+function u=Exact_solution(x)
+    %u = prod(sin(2*pi*x),2);
+    u = prod(sin(pi*x),2);
+end
